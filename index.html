@@ -3,9 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=https://massgrave.dev">
-    <title>Document</title>
+    <meta name="description" content="lnkme - An open-source URL shortener by HUXP Media Group to simplify and manage links efficiently.">
+    <meta name="keywords" content="URL shortener, lnkme, HUXP Media Group, open-source">
+    <meta property="og:title" content="lnkme - Simplify Links">
+    <meta property="og:description" content="Open-source URL shortener for streamlined link management.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lnkme.example.com">
+    <meta name="twitter:title" content="lnkme - Simplify Links">
+    <meta name="twitter:description" content="Open-source URL shortener for streamlined link management.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lnkme.example.com">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="10; url=https://massgrave.dev">
+
+    <title>lnkme - Simplify Links</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f8fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            background-color: #222;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #f4d03f;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a.active {
+            color: #fac905;
+        }
+
+        .navbar a:hover {
+            background: #f4d03f;
+            color: #222;
+            border-radius: 4px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .text {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .cn a {
+            color: #f4d03f;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cn a:hover {
+            color: #222;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 4px solid #f4d03f;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f4d03f;
+            border-radius: 4px;
+        }
+
+        /* Animation for counter */
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f4d03f;
+            animation: counterAnim 1s ease-in-out infinite;
+        }
+
+        @keyframes counterAnim {
+            0% { color: #f4d03f; }
+            50% { color: #ff6f00; }
+            100% { color: #f4d03f; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .text {
+                font-size: 1rem;
+            }
+
+            .navbar a {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <a href="/" class="active">lnkme Homepage</a>
+        <a href="/p/urls/">URLs Index</a>
+        <a href="/p/getsupport/">Get Help</a>
+    </nav>
+
+    <main class="container">
+        <h1 class="title">lnkme</h1>
+        <h2 class="subtitle">Redirecting | إعــادة تــوجــيــه</h2>
+        <hr>
+        <h1 id="counter" class="counter">10</h1>
+        <h2>Loading...</h2>
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 HUXP Media Group. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let countdown = 10;
+        const counterElement = document.getElementById('counter');
+
+        const countdownInterval = setInterval(() => {
+            if (countdown > 0) {
+                countdown--;
+                counterElement.textContent = countdown;
+            } else {
+                clearInterval(countdownInterval);
+                // يمكنك إضافة عملية الانتقال هنا بعد انتهاء العد
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
